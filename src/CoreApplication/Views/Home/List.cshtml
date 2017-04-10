@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "列表";
+}
+@section scripts{
+    <script>
+        var listData={
+            pageCount: 99,
+            pageSize: 10,
+            index:1,
+            stores: [
+                { name: '麦当劳', partname: '永兴分店', address: '北京东城区工人体育场', tel: '021-895632520', audit: '1' },
+                { name: '麦当劳', partname: '永兴分店', address: '北京东城区工人体育场', tel: '021-895632520', audit: '1' },
+                { name: '麦当劳', partname: '永兴分店', address: '北京东城区工人体育场', tel: '021-895632520', audit: '1' }
+            ]
+        }
+    var vm=new Vue({
+        el: '#vlist',
+        data: listData,
+        methods: {
+            //分页
+            page:function(index){
+                if ((index != this.index) && (index > 0) && (index <= this.pageCount)) this.index = index;
+            }
+        }
+        });
+    </script>
+}
+<div id="vlist">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>门店名称</th>
+                <th>分店名称</th>
+                <th>门店地址</th>
+                <th>门店电话</th>
+                <th>审核状态</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="store in stores">
+                <td>{{store.name}}</td>
+                <td>{{store.partname}}</td>
+                <td>{{store.address}}</td>
+                <td>{{store.tel}}</td>
+                <td v-if="store.audit==1">审核中</td>
+                <td v-else-if="store.audit==2">审核通过</td>
+                <td v-else>审核失败</td>
+                <td>操作</td>
+            </tr>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination">
+            <li :class="{'disabled':index===1}" v-on:click="page(index-1)"><a href=" #">&laquo;</a></li>
+            <li :class="{'active':index===1}" v-show="pageCount>0" v-on:click="page(1)"><a href="#">1</a></li>
+            <li v-show="pageCount>3&&index>3"><span>...</span></li>
+            <li v-show="index>2"><a href="#" v-on:click="page(index-1)">{{index-1}}</a></li>
+            <li v-show="index>1&&index<pageCount" class="active"><a href="#">{{index}}</a></li>
+            <li v-show="index>0&&index+1<pageCount" v-on:click="page(index+1)"><a href="#">{{index+1}}</a></li>
+            <li v-show="index+2<pageCount"><a href="#"><span>...</span></a></li>
+            <li :class="{'active':index===pageCount}" v-show="pageCount>0" v-on:click="page(pageCount)"><a href="#">{{pageCount}}</a></li>
+            <li :class="{'disabled':index===pageCount}" v-on:click="page(index+1)"><a href=" #">&raquo;</a></li>
+        </ul>
+    </nav>
+</div>
