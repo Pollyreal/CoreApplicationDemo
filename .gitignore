@@ -20,3 +20,6 @@
 obj/
 [Rr]elease*/
 _ReSharper*/
+node_modules/
+wwwroot/scripts/
+src/AngularDemo/Properties/launchSettings.json

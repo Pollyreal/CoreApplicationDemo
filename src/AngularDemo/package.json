@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "angular2": "2.0.0-beta.21",
+    "del": "2.2.0",
+    "gulp": "3.9.0",
+    "rxjs": "^5.1.0",
+    "systemjs": "0.20.12"
+  },
+  "dependencies": {}
+}

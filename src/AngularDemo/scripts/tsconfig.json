@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "es5",
+      "dom"
+    ]
+  },
+  "files": [
+    "./app.ts",
+    "./model.ts",
+    "./main.ts"
+  ],
+  "compileOnSave": true
+  //"exclude": [
+  //  "node_modules",
+  //  "wwwroot"
+  //]
+}
