@@ -1,2 +1,2 @@
 # CoreApplicationDemo
-A ASP.NET Core application demo.
+An ASP.NET Core application demo.
